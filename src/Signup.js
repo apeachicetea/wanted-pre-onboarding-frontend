@@ -111,7 +111,7 @@ function Signup() {
             data-testid="signup-button"
             onClick={onClickBtn}
           >
-            Signin
+            Signup
           </SignupBtn>
         </Wrapper>
       </Container>
