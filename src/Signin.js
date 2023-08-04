@@ -98,7 +98,7 @@ function Signin() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Container>
         <Wrapper>
           <EmailInput
@@ -122,7 +122,7 @@ function Signin() {
           </SigninBtn>
         </Wrapper>
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -91,7 +91,7 @@ function Signup() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Container>
         <Wrapper>
           <EmailInput
@@ -115,7 +115,7 @@ function Signup() {
           </SignupBtn>
         </Wrapper>
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -10,7 +10,7 @@ function Todo() {
     }
   }, []);
 
-  return <React.Fragment>Todo Page</React.Fragment>;
+  return <Fragment>Todo Page</Fragment>;
 }
 
 export default Todo;

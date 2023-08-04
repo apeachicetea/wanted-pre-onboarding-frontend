@@ -14,14 +14,14 @@ function Router() {
   }, [isAuthorized, navigate]);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/todo" element={<Todo />} />
       </Routes>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

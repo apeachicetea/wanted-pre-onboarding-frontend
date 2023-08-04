@@ -3,9 +3,9 @@ import Router from "./Router";
 
 function App() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Router />
-    </React.Fragment>
+    </Fragment>
   );
 }
 
