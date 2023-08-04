@@ -6,11 +6,16 @@ import Todo from "./Todo";
 
 const TodoList = styled.ul``;
 
+const TodoInput = styled.input``;
+
+const TodoBtn = styled.button``;
+
 function Todos() {
   const navigate = useNavigate();
   const baseURL = "https://www.pre-onboarding-selection-task.shop";
   const [todos, setTodos] = useState([]);
   const [accessToken, setAccessToken] = useState("");
+  const [todoInput, setTodoInput] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
@@ -26,12 +31,14 @@ function Todos() {
     if (accessToken) {
       getTodos();
     }
-  }, [accessToken]);
+  }, [todoInput, accessToken]);
 
   const getTodos = async () => {
     try {
       const response = await axios.get(`${baseURL}/todos`, {
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data } = response;
       setTodos(data);
@@ -40,11 +47,53 @@ function Todos() {
     }
   };
 
+  const handleChange = (e) => {
+    setTodoInput(e.target.value);
+  };
+
+  const handleClick = () => {
+    createTodo();
+  };
+
+  const createTodo = async () => {
+    try {
+      await axios.post(
+        `${baseURL}/todos`,
+        { todo: todoInput },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setTodoInput("");
+    } catch (error) {
+      console.error("Error sending POST request:", error);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.isComposing || e.keyCode === 229) return;
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
   return (
     <Fragment>
+      <TodoInput
+        data-testid="new-todo-input"
+        value={todoInput}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <TodoBtn data-testid="new-todo-add-button" onClick={handleClick}>
+        추가
+      </TodoBtn>
       <TodoList>
         {todos.map((todo) => {
-          return <Todo todo={todo} />;
+          return <Todo key={todo.id} todo={todo} />;
         })}
       </TodoList>
     </Fragment>

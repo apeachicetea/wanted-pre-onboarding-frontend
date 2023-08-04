@@ -13,10 +13,11 @@ const ModifyBtn = styled.button``;
 const DeleteBtn = styled.button``;
 
 function Todo({ todo }) {
+
   return (
-    <Atodo id={todo.id}>
+    <Atodo>
       <Label>
-        <Checkbox type="checkbox" />
+        <Checkbox type="checkbox" onClick={} />
         <Text>{todo.todo}</Text>
       </Label>
       <ModifyBtn data-testid="modify-button">수정</ModifyBtn>
