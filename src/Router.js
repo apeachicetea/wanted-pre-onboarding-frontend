@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Signup from "./Signup";
 import Signin from "./Signin";
-import Todo from "./Todo";
+import Todos from "./Todos";
 import NotFound from "./NotFound";
 
 function Router() {
@@ -13,7 +13,7 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/todo" element={<Todo />} />
+        <Route path="/todo" element={<Todos />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </Fragment>
