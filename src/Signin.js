@@ -97,7 +97,7 @@ function Signin() {
           />
           <SigninBtn
             disabled={isBtnDisabled}
-            data-testid="signup-button"
+            data-testid="signin-button"
             onClick={onClickBtn}
           >
             Signin
