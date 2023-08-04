@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -38,6 +39,7 @@ function Signin() {
   const [password, setPassword] = useState("");
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
   const baseURL = "https://www.pre-onboarding-selection-task.shop";
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -54,6 +56,9 @@ function Signin() {
         }
       );
       console.log(response);
+      if (response.status === 200) {
+        navigate("/todo");
+      }
     } catch (error) {
       console.error("Error sending POST request:", error);
     }
