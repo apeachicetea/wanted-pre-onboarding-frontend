@@ -56,8 +56,15 @@ function Signin() {
         }
       );
       console.log(response);
-      if (response.status === 200) {
+
+      const {
+        status,
+        data: { access_token },
+      } = response;
+
+      if (status === 200) {
         navigate("/todo");
+        localStorage.setItem("accessToken", access_token);
       }
     } catch (error) {
       console.error("Error sending POST request:", error);
