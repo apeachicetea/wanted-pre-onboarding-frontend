@@ -79,6 +79,12 @@ function Signin() {
     }
   }, [email, password]);
 
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      navigate("/todo");
+    }
+  }, []);
+
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   };
