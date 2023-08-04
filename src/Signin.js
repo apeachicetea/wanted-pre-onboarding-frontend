@@ -20,6 +20,11 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const BtnWrapper = styled.div`
+  display: flex;
+  margin-top: 5px;
+`;
+
 const EmailInput = styled.input`
   width: 100%;
   height: 20px;
@@ -31,6 +36,13 @@ const PasswordInput = styled(EmailInput)``;
 const SigninBtn = styled.button`
   width: 80px;
   height: 25px;
+  cursor: pointer;
+`;
+
+const SignupBtn = styled.button`
+  width: 80px;
+  height: 25px;
+  margin-left: 10px;
   cursor: pointer;
 `;
 
@@ -69,6 +81,10 @@ function Signin() {
     } catch (error) {
       console.error("Error sending POST request:", error);
     }
+  };
+
+  const handleClick = () => {
+    navigate("/signup");
   };
 
   useEffect(() => {
@@ -113,13 +129,16 @@ function Signin() {
             placeholder="write your password here"
             onChange={onChangePassword}
           />
-          <SigninBtn
-            disabled={isBtnDisabled}
-            data-testid="signin-button"
-            onClick={onClickBtn}
-          >
-            Signin
-          </SigninBtn>
+          <BtnWrapper>
+            <SigninBtn
+              disabled={isBtnDisabled}
+              data-testid="signin-button"
+              onClick={onClickBtn}
+            >
+              Signin
+            </SigninBtn>
+            <SignupBtn onClick={handleClick}>Signup</SignupBtn>
+          </BtnWrapper>
         </Wrapper>
       </Container>
     </Fragment>
