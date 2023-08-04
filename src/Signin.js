@@ -113,6 +113,10 @@ function Signin() {
     handleSubmit();
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleSubmit();
+  };
+
   return (
     <Fragment>
       <Container>
@@ -128,6 +132,7 @@ function Signin() {
             data-testid="password-input"
             placeholder="write your password here"
             onChange={onChangePassword}
+            onKeyDown={handleKeyDown}
           />
           <BtnWrapper>
             <SigninBtn

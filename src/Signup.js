@@ -31,6 +31,7 @@ const PasswordInput = styled(EmailInput)``;
 const SignupBtn = styled.button`
   width: 80px;
   height: 25px;
+  margin-top: 5px;
   cursor: pointer;
 `;
 
@@ -90,6 +91,10 @@ function Signup() {
     handleSubmit();
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleSubmit();
+  };
+
   return (
     <Fragment>
       <Container>
@@ -105,6 +110,7 @@ function Signup() {
             data-testid="password-input"
             placeholder="write your password here"
             onChange={onChangePassword}
+            onKeyDown={handleKeyDown}
           />
           <SignupBtn
             disabled={isBtnDisabled}
