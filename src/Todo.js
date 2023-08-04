@@ -8,7 +8,7 @@ function Todo() {
     if (!localStorage.getItem("accessToken")) {
       navigate("/signin");
     }
-  }, []);
+  }, [navigate]);
 
   return <Fragment>Todo Page</Fragment>;
 }

@@ -76,7 +76,7 @@ function Signup() {
     if (localStorage.getItem("accessToken")) {
       navigate("/todo");
     }
-  }, []);
+  }, [navigate]);
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
