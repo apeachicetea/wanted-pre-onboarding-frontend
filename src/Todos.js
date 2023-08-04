@@ -93,7 +93,15 @@ function Todos() {
       </TodoBtn>
       <TodoList>
         {todos.map((todo) => {
-          return <Todo key={todo.id} todo={todo} />;
+          return (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              todoInput={todoInput}
+              baseURL={baseURL}
+              accessToken={accessToken}
+            />
+          );
         })}
       </TodoList>
     </Fragment>
