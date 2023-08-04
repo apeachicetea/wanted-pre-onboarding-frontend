@@ -2,20 +2,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import Todo from "./Todo";
 
 const TodoList = styled.ul``;
-
-const Todo = styled.li``;
-
-const Label = styled.label``;
-
-const Checkbox = styled.input``;
-
-const Text = styled.span``;
-
-const ModifyBtn = styled.button``;
-
-const DeleteBtn = styled.button``;
 
 function Todos() {
   const navigate = useNavigate();
@@ -55,16 +44,7 @@ function Todos() {
     <Fragment>
       <TodoList>
         {todos.map((todo) => {
-          return (
-            <Todo id={todo.id}>
-              <Label>
-                <Checkbox type="checkbox" />
-                <Text>{todo.todo}</Text>
-              </Label>
-              <ModifyBtn data-testid="modify-button">수정</ModifyBtn>
-              <DeleteBtn data-testid="delete-button">삭제</DeleteBtn>
-            </Todo>
-          );
+          return <Todo todo={todo} />;
         })}
       </TodoList>
     </Fragment>
