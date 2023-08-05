@@ -4,7 +4,7 @@
 
 ## 프로젝트의 실행 방법
 
-git clone 후, npm install & npm start 명령어를 통해서 동작할 수 있습니다.
+git clone 후, npm install & npm start 명령어를 통해서 실행할 수 있습니다.
 
 ### 배포 링크
 
