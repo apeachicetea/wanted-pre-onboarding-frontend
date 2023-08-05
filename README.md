@@ -1,4 +1,4 @@
-### 지원자의 성명
+## 지원자의 성명
 
 김대윤
 
@@ -6,6 +6,6 @@
 
 git clone 후, npm install & npm start 명령어를 통해서 실행할 수 있습니다.
 
-### 배포 링크
+## 배포 링크
 
 https://wanted-pre-onboarding-frontend-seven-zeta.vercel.app/
