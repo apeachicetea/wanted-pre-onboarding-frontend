@@ -8,7 +8,10 @@ const TodoList = styled.ul``;
 
 const TodoInput = styled.input``;
 
-const TodoBtn = styled.button``;
+const TodoBtn = styled.button`
+  margin-left: 5px;
+  cursor: pointer;
+`;
 
 function Todos() {
   const navigate = useNavigate();
