@@ -20,8 +20,6 @@ function Todos() {
   const [accessToken, setAccessToken] = useState("");
   const [todoInput, setTodoInput] = useState("");
 
-  // console.log(todos);
-
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
       navigate("/signin");

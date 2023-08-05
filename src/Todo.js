@@ -41,7 +41,6 @@ function Todo({ todo, baseURL, accessToken }) {
   }, [isCompleted]);
 
   const updateTodo = async () => {
-    console.log(input);
     try {
       const response = await axios.put(
         `${baseURL}/todos/${todo.id}`,
@@ -55,7 +54,6 @@ function Todo({ todo, baseURL, accessToken }) {
       );
       setInput("");
       setIsModified(false);
-      console.log(response);
     } catch (error) {
       console.error("Error sending PUT request:", error);
     }
