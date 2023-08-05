@@ -14,14 +14,18 @@ const ModifyBtn = styled.button``;
 
 const DeleteBtn = styled.button``;
 
-function Todo({ todo, todoInput, baseURL, accessToken }) {
+function Todo({ todo, todoInput = "", baseURL, accessToken }) {
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
+
+  useEffect(() => {
+    updateTodo();
+  }, [isCompleted]);
 
   const updateTodo = async () => {
     try {
       const response = await axios.put(
         `${baseURL}/todos/${todo.id}`,
-        { todo: todoInput, isCompleted },
+        { todo: todo.todo, isCompleted },
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -29,7 +33,6 @@ function Todo({ todo, todoInput, baseURL, accessToken }) {
           },
         }
       );
-      console.log(response);
     } catch (error) {
       console.error("Error sending PUT request:", error);
     }
@@ -47,7 +50,7 @@ function Todo({ todo, todoInput, baseURL, accessToken }) {
     }
   };
 
-  const handleClick = (e) => {
+  const handleChange = (e) => {
     console.log(e.target.checked);
     setIsCompleted(e.target.checked);
   };
@@ -57,8 +60,8 @@ function Todo({ todo, todoInput, baseURL, accessToken }) {
       <Label>
         <Checkbox
           type="checkbox"
-          checked={isCompleted ? true : undefined}
-          onClick={handleClick}
+          checked={isCompleted}
+          onChange={handleChange}
         />
         <Text>{todo.todo}</Text>
       </Label>
