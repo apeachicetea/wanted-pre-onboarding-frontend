@@ -42,7 +42,7 @@ function Todo({ todo, baseURL, accessToken }) {
 
   const updateTodo = async () => {
     try {
-      const response = await axios.put(
+      await axios.put(
         `${baseURL}/todos/${todo.id}`,
         { todo: input || todo.todo, isCompleted },
         {
