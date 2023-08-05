@@ -35,6 +35,18 @@ function Todo({ todo, todoInput, baseURL, accessToken }) {
     }
   };
 
+  const deleteTodo = async () => {
+    try {
+      await axios.delete(`${baseURL}/todos/${todo.id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    } catch (error) {
+      console.error("Error sending DELETE request:", error);
+    }
+  };
+
   const handleClick = (e) => {
     console.log(e.target.checked);
     setIsCompleted(e.target.checked);
@@ -53,7 +65,9 @@ function Todo({ todo, todoInput, baseURL, accessToken }) {
       <ModifyBtn data-testid="modify-button" onClick={updateTodo}>
         수정
       </ModifyBtn>
-      <DeleteBtn data-testid="delete-button">삭제</DeleteBtn>
+      <DeleteBtn data-testid="delete-button" onClick={deleteTodo}>
+        삭제
+      </DeleteBtn>
     </Atodo>
   );
 }
