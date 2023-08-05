@@ -67,7 +67,6 @@ function Signin() {
           },
         }
       );
-      console.log(response);
 
       const {
         status,

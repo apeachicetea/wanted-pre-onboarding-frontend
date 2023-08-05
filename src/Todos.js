@@ -31,7 +31,6 @@ function Todos() {
     if (accessToken) {
       getTodos();
     }
-    // console.log(todos);
   }, [todos, todoInput, accessToken]);
 
   const getTodos = async () => {

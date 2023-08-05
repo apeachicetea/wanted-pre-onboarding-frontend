@@ -14,7 +14,7 @@ const ModifyBtn = styled.button``;
 
 const DeleteBtn = styled.button``;
 
-function Todo({ todo, todoInput = "", baseURL, accessToken }) {
+function Todo({ todo, baseURL, accessToken }) {
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
 
   useEffect(() => {
@@ -51,7 +51,6 @@ function Todo({ todo, todoInput = "", baseURL, accessToken }) {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.checked);
     setIsCompleted(e.target.checked);
   };
 
