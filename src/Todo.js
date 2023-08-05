@@ -8,11 +8,18 @@ const Label = styled.label``;
 
 const Checkbox = styled.input``;
 
-const Text = styled.span``;
+const Text = styled.span`
+  margin: 0px 5px 0px 3px;
+`;
 
-const ModifyBtn = styled.button``;
+const ModifyBtn = styled.button`
+  margin-right: 5px;
+  cursor: pointer;
+`;
 
-const DeleteBtn = styled.button``;
+const DeleteBtn = styled.button`
+  cursor: pointer;
+`;
 
 function Todo({ todo, baseURL, accessToken }) {
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
