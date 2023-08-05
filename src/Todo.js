@@ -75,6 +75,7 @@ function Todo({ todo, baseURL, accessToken }) {
 
   const handleClick = () => {
     setIsModified(!isModified);
+    setInput("");
   };
 
   const handleChange = (e) => {
