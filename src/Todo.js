@@ -29,7 +29,7 @@ const SummitBtn = styled(ModifyBtn)`
 
 const CancelBtn = styled(DeleteBtn)``;
 
-function Todo({ todo, baseURL, accessToken }) {
+function Todo({ todo, baseURL, accessToken, getTodos }) {
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
   const [isModified, setIsModified] = useState(false);
   const [input, setInput] = useState("");
@@ -54,6 +54,7 @@ function Todo({ todo, baseURL, accessToken }) {
       );
       setInput("");
       setIsModified(false);
+      getTodos(accessToken);
     } catch (error) {
       console.error("Error sending PUT request:", error);
     }
@@ -66,6 +67,7 @@ function Todo({ todo, baseURL, accessToken }) {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+      getTodos(accessToken);
     } catch (error) {
       console.error("Error sending DELETE request:", error);
     }

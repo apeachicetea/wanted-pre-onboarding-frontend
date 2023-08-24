@@ -27,20 +27,19 @@ function Todos() {
   }, [navigate]);
 
   useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      const access_token = localStorage.getItem("accessToken");
-      setAccessToken(access_token);
-    }
-    if (accessToken) {
-      getTodos();
-    }
-  }, [todos, todoInput, accessToken]);
+    const token = localStorage.getItem("accessToken");
 
-  const getTodos = async () => {
+    if (token) {
+      setAccessToken(token);
+      getTodos(token);
+    }
+  }, []);
+
+  const getTodos = async (token) => {
     try {
       const response = await axios.get(`${baseURL}/todos`, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       const { data } = response;
@@ -70,6 +69,7 @@ function Todos() {
           },
         }
       );
+      getTodos(accessToken);
       setTodoInput("");
     } catch (error) {
       console.error("Error sending POST request:", error);
@@ -103,6 +103,7 @@ function Todos() {
               todoInput={todoInput}
               baseURL={baseURL}
               accessToken={accessToken}
+              getTodos={getTodos}
             />
           );
         })}
